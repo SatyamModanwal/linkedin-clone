@@ -55,38 +55,175 @@
    
 
 
+// import Sidebar from "../components/Sidebar/Sidebar";
+// import CreatePost from "../components/CreatePost/CreatePost";
+// //s-27.2
+// import PostCard from "../components/PostCard/PostCard";
+
+
+// function Home() {
+//   return (
+//     <div className="max-w-7xl mx-auto mt-6">
+//       <div className="grid grid-cols-12 gap-4">
+
+//         <div className="col-span-3 bg-white p-4 rounded shadow">
+//           <Sidebar />
+//         </div>
+// {/* 
+//         <div className="col-span-6">
+//           <CreatePost />
+//         </div> */
+
+//         //s-27.4
+//         <div className="col-span-6">
+
+//   <CreatePost />
+
+//   <PostCard />
+
+//   <PostCard />
+
+// </div>}
+
+//         <div className="col-span-3 bg-white p-4 rounded shadow">
+//           News Section
+//         </div>
+
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default Home;
+
+// import Sidebar from "../components/Sidebar/Sidebar";
+// import CreatePost from "../components/CreatePost/CreatePost";
+// import PostCard from "../components/PostCard/PostCard";
+
+// function Home() {
+//   const posts = [
+//     {
+//       id: 1,
+//       name: "John Doe",
+//       role: "MERN Stack Developer",
+//       content: "Excited to share my LinkedIn Clone Project 🚀",
+//     },
+//     {
+//       id: 2,
+//       name: "Rahul Sharma",
+//       role: "Frontend Developer",
+//       content: "Learning React and Tailwind CSS 🔥",
+//     },
+//     {
+//       id: 3,
+//       name: "Aman Kumar",
+//       role: "Full Stack Developer",
+//       content: "Working on LinkedIn Clone using MERN Stack 💻",
+//     },
+//   ];
+
+//   return (
+//     <div className="max-w-7xl mx-auto mt-6">
+//       <div className="grid grid-cols-12 gap-4">
+        
+//         {/* Left Sidebar */}
+//         <div className="col-span-3 bg-white p-4 rounded shadow">
+//           <Sidebar />
+//         </div>
+
+//         {/* Feed Section */}
+//         <div className="col-span-6">
+//           <CreatePost />
+
+//           {posts.map((post) => (
+//             <PostCard
+//               key={post.id}
+//               name={post.name}
+//               role={post.role}
+//               content={post.content}
+//             />
+//           ))}
+//         </div>
+
+//         {/* Right Section */}
+//         <div className="col-span-3 bg-white p-4 rounded shadow">
+//           <h2 className="font-bold text-lg mb-2">LinkedIn News</h2>
+//           <ul className="space-y-2">
+//             <li>🚀 React 19 Released</li>
+//             <li>💼 Hiring for MERN Developers</li>
+//             <li>🔥 Tailwind CSS Trending</li>
+//             <li>📈 Tech Jobs Growing Fast</li>
+//           </ul>
+//         </div>
+
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default Home;
+
+
+
 import Sidebar from "../components/Sidebar/Sidebar";
 import CreatePost from "../components/CreatePost/CreatePost";
-//s-27.2
 import PostCard from "../components/PostCard/PostCard";
 
-
 function Home() {
+  const posts = [
+    {
+      id: 1,
+      name: "John Doe",
+      role: "MERN Stack Developer",
+      content: "Excited to share my LinkedIn Clone Project 🚀",
+    },
+    {
+      id: 2,
+      name: "Rahul Sharma",
+      role: "Frontend Developer",
+      content: "Learning React and Tailwind CSS 🔥",
+    },
+    {
+      id: 3,
+      name: "Aman Kumar",
+      role: "Full Stack Developer",
+      content: "Working on LinkedIn Clone using MERN Stack 💻",
+    },
+  ];
+
   return (
     <div className="max-w-7xl mx-auto mt-6">
       <div className="grid grid-cols-12 gap-4">
 
+        {/* Left Sidebar */}
         <div className="col-span-3 bg-white p-4 rounded shadow">
           <Sidebar />
         </div>
-{/* 
+
+        {/* Feed Section */}
         <div className="col-span-6">
           <CreatePost />
-        </div> */
 
-        //s-27.4
-        <div className="col-span-6">
+          {posts.map((post) => (
+            <PostCard
+              key={post.id}
+              post={post}
+            />
+          ))}
+        </div>
 
-  <CreatePost />
-
-  <PostCard />
-
-  <PostCard />
-
-</div>}
-
+        {/* Right Section */}
         <div className="col-span-3 bg-white p-4 rounded shadow">
-          News Section
+          <h2 className="font-bold text-lg mb-2">
+            LinkedIn News
+          </h2>
+
+          <ul className="space-y-2">
+            <li>🚀 React 19 Released</li>
+            <li>💼 Hiring for MERN Developers</li>
+            <li>🔥 Tailwind CSS Trending</li>
+            <li>📈 Tech Jobs Growing Fast</li>
+          </ul>
         </div>
 
       </div>
