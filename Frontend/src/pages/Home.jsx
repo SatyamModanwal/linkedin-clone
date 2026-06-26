@@ -164,13 +164,83 @@
 // export default Home;
 
 
+//s-29.4
+// import { useState } from "react";
+
+// import Sidebar from "../components/Sidebar/Sidebar";
+// import CreatePost from "../components/CreatePost/CreatePost";
+// import PostCard from "../components/PostCard/PostCard";
+
+// function Home() {
+//  const [posts, setPosts] = useState([
+//   {
+//     id: 1,
+//     name: "John Doe",
+//     role: "MERN Stack Developer",
+//     content: "Excited to share my LinkedIn Clone Project 🚀",
+//   },
+//   {
+//     id: 2,
+//     name: "Rahul Sharma",
+//     role: "Frontend Developer",
+//     content: "Learning React and Tailwind CSS 🔥",
+//   },
+// ]);
+
+
+
+
+//   return (
+//     <div className="max-w-7xl mx-auto mt-6">
+//       <div className="grid grid-cols-12 gap-4">
+
+//         {/* Left Sidebar */}
+//         <div className="col-span-3 bg-white p-4 rounded shadow">
+//           <Sidebar />
+//         </div>
+
+//         {/* Feed Section */}
+//         <div className="col-span-6">
+//           <CreatePost />
+
+//           {posts.map((post) => (
+//             <PostCard
+//               key={post.id}
+//               post={post}
+//             />
+//           ))}
+//         </div>
+
+//         {/* Right Section */}
+//         <div className="col-span-3 bg-white p-4 rounded shadow">
+//           <h2 className="font-bold text-lg mb-2">
+//             LinkedIn News
+//           </h2>
+
+//           <ul className="space-y-2">
+//             <li>🚀 React 19 Released</li>
+//             <li>💼 Hiring for MERN Developers</li>
+//             <li>🔥 Tailwind CSS Trending</li>
+//             <li>📈 Tech Jobs Growing Fast</li>
+//           </ul>
+//         </div>
+
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default Home;
+
+
+import { useState } from "react";
 
 import Sidebar from "../components/Sidebar/Sidebar";
 import CreatePost from "../components/CreatePost/CreatePost";
 import PostCard from "../components/PostCard/PostCard";
 
 function Home() {
-  const posts = [
+  const [posts, setPosts] = useState([
     {
       id: 1,
       name: "John Doe",
@@ -189,7 +259,18 @@ function Home() {
       role: "Full Stack Developer",
       content: "Working on LinkedIn Clone using MERN Stack 💻",
     },
-  ];
+  ]);
+
+  const addPost = (content) => {
+    const newPost = {
+      id: Date.now(),
+      name: "You",
+      role: "MERN Learner",
+      content: content,
+    };
+
+    setPosts([newPost, ...posts]);
+  };
 
   return (
     <div className="max-w-7xl mx-auto mt-6">
@@ -202,7 +283,8 @@ function Home() {
 
         {/* Feed Section */}
         <div className="col-span-6">
-          <CreatePost />
+
+          <CreatePost addPost={addPost} />
 
           {posts.map((post) => (
             <PostCard
@@ -210,10 +292,12 @@ function Home() {
               post={post}
             />
           ))}
+
         </div>
 
         {/* Right Section */}
         <div className="col-span-3 bg-white p-4 rounded shadow">
+
           <h2 className="font-bold text-lg mb-2">
             LinkedIn News
           </h2>
@@ -224,6 +308,7 @@ function Home() {
             <li>🔥 Tailwind CSS Trending</li>
             <li>📈 Tech Jobs Growing Fast</li>
           </ul>
+
         </div>
 
       </div>

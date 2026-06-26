@@ -117,55 +117,114 @@
 // export default PostCard;
 
 
-function PostCard({ post }) {
+// function PostCard({ post }) {
+//   return (
+//     <div className="bg-white p-4 rounded-lg shadow mt-4">
+
+//       {/* User Info */}
+//       <div className="flex items-center gap-3">
+
+//         <img
+//           src="https://via.placeholder.com/50"
+//           alt="profile"
+//           className="rounded-full"
+//         />
+
+//         <div>
+//           <h3 className="font-bold">
+//             {post.name}
+//           </h3>
+
+//           <p className="text-gray-500 text-sm">
+//             {post.role}
+//           </p>
+//         </div>
+
+//       </div>
+
+//       {/* Post Content */}
+//       <p className="mt-4">
+//         {post.content}
+//       </p>
+
+//       {/* Actions */}
+//       <div className="flex justify-around mt-4 border-t pt-3">
+
+//         <button className="hover:text-blue-500">
+//           👍 Like
+//         </button>
+
+//         <button className="hover:text-blue-500">
+//           💬 Comment
+//         </button>
+
+//         <button className="hover:text-blue-500">
+//           ↗ Share
+//         </button>
+
+//       </div>
+
+//     </div>
+//   );
+// }
+
+// export default PostCard;
+
+//step.29.2
+// function CreatePost() {
+//   return (
+//     <div className="bg-white p-4 rounded-lg shadow">
+
+//       <input
+//         type="text"
+//         placeholder="What's on your mind?"
+//         className="w-full border p-3 rounded-lg"
+//       />
+
+//       <button className="mt-3 bg-blue-500 text-white px-4 py-2 rounded">
+//         Add Post
+//       </button>
+
+//     </div>
+//   );
+// }
+
+// export default CreatePost;
+
+
+import { useState } from "react";
+
+function CreatePost({ addPost }) {
+  const [text, setText] = useState("");
+
+  const handleSubmit = () => {
+    if (!text.trim()) return;
+
+    addPost(text);
+
+    setText("");
+  };
+
   return (
-    <div className="bg-white p-4 rounded-lg shadow mt-4">
+    <div className="bg-white p-4 rounded-lg shadow">
 
-      {/* User Info */}
-      <div className="flex items-center gap-3">
+      <input
+        type="text"
+        placeholder="What's on your mind?"
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+        className="w-full border p-3 rounded-lg"
+      />
 
-        <img
-          src="https://via.placeholder.com/50"
-          alt="profile"
-          className="rounded-full"
-        />
-
-        <div>
-          <h3 className="font-bold">
-            {post.name}
-          </h3>
-
-          <p className="text-gray-500 text-sm">
-            {post.role}
-          </p>
-        </div>
-
-      </div>
-
-      {/* Post Content */}
-      <p className="mt-4">
-        {post.content}
-      </p>
-
-      {/* Actions */}
-      <div className="flex justify-around mt-4 border-t pt-3">
-
-        <button className="hover:text-blue-500">
-          👍 Like
-        </button>
-
-        <button className="hover:text-blue-500">
-          💬 Comment
-        </button>
-
-        <button className="hover:text-blue-500">
-          ↗ Share
-        </button>
-
-      </div>
+      <button
+        onClick={handleSubmit}
+        className="mt-3 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+      >
+        Add Post
+      </button>
 
     </div>
   );
 }
 
-export default PostCard;
+export default CreatePost;
